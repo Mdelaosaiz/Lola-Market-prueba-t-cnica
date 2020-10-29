@@ -14,20 +14,17 @@ class Category extends React.Component {
 
   render(){
     return (
-    // <li /*className='catalogueListItem'*/ key= {this.props.category.id}> {this.props.category.name}
     <li key= {this.props.category.id}>
-    <ul className="catalogueList">
-    <Collapsible trigger={this.props.category.name}>
-      <CategoryItem id = "-1" name= "Select all"></CategoryItem> 
-      {this.renderCategoryItemArray()}
-    </Collapsible>
-    </ul>
+      <ul className="catalogueList">
+        <Collapsible trigger={this.props.category.name}>
+        <CategoryItem id = "-1" name= "Select all"></CategoryItem> 
+          {this.renderCategoryItemArray()}
+         </Collapsible>
+      </ul>
     </li>
     
     );
   }
 }
-    
-// 
 
 export default Category;
