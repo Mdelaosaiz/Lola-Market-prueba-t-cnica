@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoryItem from './CategoryItem';
+import Collapsible from 'react-collapsible';
 
 
 class Catalogue extends React.Component {
@@ -9,8 +10,9 @@ class Catalogue extends React.Component {
       return (
         <li /*className='catalogueListItem'*/ key= {item.id}> {item.name}
         <ul>
-
+         <Collapsible trigger="">
           {this.renderSubCategory(item)}
+         </Collapsible>
         </ul>
         </li>
       );
