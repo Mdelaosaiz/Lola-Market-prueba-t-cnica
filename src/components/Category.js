@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryItem from './CategoryItem';
 import Collapsible from 'react-collapsible';
-import '../stylesheets/layout/App.scss';
+import '../stylesheets/layout/_category.scss';
 
 class Category extends React.Component {
  
@@ -15,10 +15,10 @@ class Category extends React.Component {
 
   render(){
     return (
-    <li key= {this.props.category.id}>
+    <li className="category" key= {this.props.category.id}>
       <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
       <ul className="catalogueList">
-        <Collapsible trigger={this.props.category.name}>
+        <Collapsible className="collapsible" trigger={this.props.category.name}>
         <CategoryItem id = "-1" name= "Select all"> 
           <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
         </CategoryItem> 

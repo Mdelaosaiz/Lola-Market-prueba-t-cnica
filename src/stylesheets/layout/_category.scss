@@ -1,0 +1,18 @@
+.category{
+  width: 324px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 1px solid gray;
+
+  .icon{
+    height: 19px;
+    width: 19.5px;
+    margin: 6.4px;
+  }
+  
+  .collapsible{
+    padding-top:5px;
+  }
+}

@@ -10,15 +10,15 @@ class App extends React.Component {
     this.state = {
     token:"",
     markets: [],
+    selectedMarket : {},
     company_id: 50,  
     catalogue: [],
     category_id: 0,
     items: [],
     }
     this.getTokenFromApi();
-    
-    
   }
+  
   getTokenFromApi() {
     fetch(
       `https://api.comprea.com/v7/user/session`
@@ -36,7 +36,8 @@ class App extends React.Component {
         .then((response) => response.json())
         .then((data) => {
           this.setState({markets : data.markets});
-        });  
+        });
+        console.log(this.state.markets);  
         
   }    
   
@@ -65,10 +66,14 @@ class App extends React.Component {
         <Switch>
           <Route path=''/>
         </Switch>  
-        <header className="header">
-        
-        </header>
-        <div>
+        <div className="header">
+         <img alt=""></img>
+         <div className="shop">
+           <span>tienda</span>
+           <small>20000</small>
+         </div>
+        </div>
+        <div className="catalogue">
          <Catalogue catalogue={this.state.catalogue} />
         </div>
       </div>
