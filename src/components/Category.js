@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryItem from './CategoryItem';
 import Collapsible from 'react-collapsible';
-import '../stylesheets/layout/_category.scss';
+import '../stylesheets/layout/App.scss';
 
 class Category extends React.Component {
  

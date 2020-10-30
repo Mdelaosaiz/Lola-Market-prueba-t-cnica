@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/layout/_categoryItems.scss';
+import '../stylesheets/layout/App.scss';
 
 class CategoryItem extends React.Component{
   render(){

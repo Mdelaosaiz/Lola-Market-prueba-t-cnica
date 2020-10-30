@@ -1,6 +1,6 @@
 import React from 'react';
 import Category from './Category'
-import '../stylesheets/layout/_catalogue.scss';
+import '../stylesheets/layout/App.scss';
 
 class Catalogue extends React.Component {
  
