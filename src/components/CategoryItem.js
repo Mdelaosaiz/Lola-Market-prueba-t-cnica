@@ -1,11 +1,11 @@
 import React from 'react';
-import '../stylesheets/layout/_products.scss';
+import '../stylesheets/layout/_categoryItems.scss';
 
 class CategoryItem extends React.Component{
   render(){
     return(
-      <li /*className='catalogueListItem'*/ key= {this.props.id} >
-        <img className="icon" src= {this.props.icon} alt="icono del producto"></img> 
+      <li className='categoryListItem' key= {this.props.id} >
+        <img className="item-icon" src= {this.props.icon} alt="icono del producto"></img> 
         {this.props.name}</li>
     )
   }

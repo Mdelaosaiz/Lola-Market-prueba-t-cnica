@@ -1,6 +1,7 @@
 .App {
   height: 100vh;
   width: 324px;
+  border: 1px solid grey;
  
   .header{
    height: 64px;
@@ -25,5 +26,6 @@
   .catalogue{
     position: relative;
     margin-top:64px;
+    
   }
 }

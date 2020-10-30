@@ -1,10 +1,13 @@
 .category{
   width: 324px;
-  padding: 12px;
+  padding-top: 18px;
+  padding-bottom: 17px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   border-bottom: 1px solid gray;
+
+  
 
   .icon{
     height: 19px;
@@ -13,6 +16,18 @@
   }
   
   .collapsible{
+    
     padding-top:5px;
+
   }
 }
+.category:active {
+  background-color: #4FD053;
+}
+.category:hover{
+  cursor: pointer;
+  background-color: #f5f5f5;
+  
+  
+}
+

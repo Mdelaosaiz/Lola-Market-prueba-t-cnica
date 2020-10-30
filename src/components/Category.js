@@ -17,7 +17,7 @@ class Category extends React.Component {
     return (
     <li className="category" key= {this.props.category.id}>
       <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
-      <ul className="catalogueList">
+      <ul className="categoryList">
         <Collapsible className="collapsible" trigger={this.props.category.name}>
         <CategoryItem id = "-1" name= "Select all"> 
           <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
