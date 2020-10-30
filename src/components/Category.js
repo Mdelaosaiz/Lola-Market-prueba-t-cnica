@@ -1,12 +1,13 @@
 import React from 'react';
 import CategoryItem from './CategoryItem';
 import Collapsible from 'react-collapsible';
+import '../stylesheets/layout/App.scss';
 
 class Category extends React.Component {
  
   renderCategoryItemArray(){
     const subCategory = this.props.category.categories.map(item => {
-      return (<CategoryItem id = {item.id} name= {item.name} checked={item.checked}></CategoryItem>);
+      return (<CategoryItem id = {item.id} name= {item.name} icon= {item.icon} checked={item.checked}></CategoryItem>);
     });
     return subCategory;
   }
@@ -15,9 +16,12 @@ class Category extends React.Component {
   render(){
     return (
     <li key= {this.props.category.id}>
+      <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
       <ul className="catalogueList">
         <Collapsible trigger={this.props.category.name}>
-        <CategoryItem id = "-1" name= "Select all"></CategoryItem> 
+        <CategoryItem id = "-1" name= "Select all"> 
+          <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
+        </CategoryItem> 
           {this.renderCategoryItemArray()}
          </Collapsible>
       </ul>

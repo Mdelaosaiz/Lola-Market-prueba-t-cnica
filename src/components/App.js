@@ -37,8 +37,9 @@ class App extends React.Component {
         .then((data) => {
           this.setState({markets : data.markets});
         });  
+        
   }    
-
+  
   getCategories(token){
     fetch(
       `https://api.comprea.com/v7/company/categories?token=${token}&company_id=${this.state.company_id}`
@@ -57,19 +58,19 @@ class App extends React.Component {
       this.setState({items : data.items});
     });  
   }
-
+  
   render(){
     return (
       <div className="App">
-        <ul>
-          <li>
-           hola mundo
-          </li>
-        </ul>
         <Switch>
           <Route path=''/>
         </Switch>  
-        <Catalogue catalogue={this.state.catalogue} />
+        <header className="header">
+        
+        </header>
+        <div>
+         <Catalogue catalogue={this.state.catalogue} />
+        </div>
       </div>
      );
   }
