@@ -17,6 +17,8 @@ class App extends React.Component {
     items: [],
     }
     this.getTokenFromApi();
+
+    this.onCatalogueChange = this.onCatalogueChange.bind(this)
   }
   
   getTokenFromApi() {
@@ -59,6 +61,10 @@ class App extends React.Component {
       this.setState({items : data.items});
     });  
   }
+   
+  onCatalogueChange (catalogueProps){
+    this.setState({catalogue : catalogueProps});
+  }
   
   render(){
     return (
@@ -74,7 +80,7 @@ class App extends React.Component {
          </div>
         </div>
         <div className="catalogue">
-         <Catalogue catalogue={this.state.catalogue} />
+         <Catalogue catalogue={this.state.catalogue} onChange = {this.onCatalogueChange}/>
         </div>
       </div>
      );

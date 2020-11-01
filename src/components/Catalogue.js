@@ -3,11 +3,20 @@ import Category from './Category'
 import '../stylesheets/layout/App.scss';
 
 class Catalogue extends React.Component {
- 
+
+  constructor(props){
+    super(props);
+    this.onChangeCategory = this.onChangeCategory.bind(this);
+  }
+
+ onChangeCategory(){
+   this.props.onChange(this.props.catalogue);
+ }
+
   renderCategoryArray(){
     const catalogueItem = this.props.catalogue.map(item =>{
       return (
-          <Category category={item} icon= {item.icon}></Category>
+          <Category key={item.id} category={item} icon= {item.icon} onChange ={this.onChangeCategory}></Category>
       );
     });
     return catalogueItem

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_checked</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Selected" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-332.000000, -337.000000)">
+        <g id="Categories" transform="translate(48.000000, 88.000000)" fill="#4FD053">
+            <g id="list" transform="translate(0.000000, 63.500000)">
+                <g id="Open-Group" transform="translate(0.000000, 56.000000)">
+                    <g id="subitem" transform="translate(0.000000, 113.000000)">
+                        <g id="ic_checked" transform="translate(284.000000, 16.500000)">
+                            <path d="M22.225867,4.64948454 C22.0275814,4.45017182 21.7301529,4.45017182 21.5318672,4.64948454 L8.49458506,17.7542955 L3.19044364,12.4725086 C2.99215798,12.2731959 2.69472949,12.2731959 2.49644383,12.4725086 C2.29815817,12.6718213 2.29815817,12.9707904 2.49644383,13.1701031 L8.14758515,18.8505155 C8.24672798,18.9501718 8.39544223,19 8.49458506,19 C8.59372789,19 8.74244213,18.9501718 8.84158496,18.8505155 C8.89115638,18.8006873 8.94072779,18.7010309 8.94072779,18.6512027 C8.99029921,18.6512027 9.03987062,18.6013746 9.03987062,18.6013746 L22.225867,5.34707904 C22.4241527,5.14776632 22.4241527,4.84879725 22.225867,4.64948454 L22.225867,4.64948454 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

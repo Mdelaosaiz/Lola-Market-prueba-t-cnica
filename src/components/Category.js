@@ -5,25 +5,35 @@ import '../stylesheets/layout/App.scss';
 
 class Category extends React.Component {
  
+  constructor(props){
+    super(props);
+    this.onCategoryItemChange = this.onCategoryItemChange.bind(this);
+  }
+
   renderCategoryItemArray(){
     const subCategory = this.props.category.categories.map(item => {
-      return (<CategoryItem id = {item.id} name= {item.name} icon= {item.icon} checked={item.checked}></CategoryItem>);
+      return (<CategoryItem key={item.id} item = {item} onChange= {this.onCategoryItemChange}></CategoryItem>);
     });
     return subCategory;
   }
-
+  //con esta función se notifica al padre qué cambios ha habido y se usa como parámetro lo que ha cambiado del hijo. 
+  onCategoryItemChange(id, checked){
+    this.props.onChange();
+  }
 
   render(){
+
+    const selectAll = {id:-1, name:"Ver todo", icon: "../images/eye.png"}; //TODO
+
     return (
     <li className="category" key= {this.props.category.id}>
       <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
       <ul className="categoryList">
         <Collapsible className="collapsible" trigger={this.props.category.name}>
-        <CategoryItem id = "-1" name= "Select all"> 
-          <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
-        </CategoryItem> 
+          <CategoryItem key={selectAll.id} item = {selectAll} onChange = {this.onCategoryItemChange}>
+          </CategoryItem>
           {this.renderCategoryItemArray()}
-         </Collapsible>
+        </Collapsible>
       </ul>
     </li>
     
