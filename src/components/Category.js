@@ -3,6 +3,8 @@ import CategoryItem from './CategoryItem';
 import Collapsible from 'react-collapsible';
 import '../stylesheets/layout/App.scss';
 
+import eye from '../images/eye.png';
+
 class Category extends React.Component {
  
   constructor(props){
@@ -23,7 +25,7 @@ class Category extends React.Component {
 
   render(){
 
-    const selectAll = {id:-1, name:"Ver todo", icon: "../images/eye.png"}; //TODO
+    const selectAll = {id:-1, name:"Ver todo", icon: eye}; //TODO
 
     return (
     <li className="category" key= {this.props.category.id}>

@@ -1,6 +1,8 @@
 import React from 'react';
 import '../stylesheets/layout/App.scss';
 
+import checked from '../images/ic_checked.svg';
+
 class CategoryItem extends React.Component{
 
 constructor(props){
@@ -10,7 +12,7 @@ constructor(props){
 
   renderCheck(){
      if (this.props.item.checked === true){
-       return(<img className="checked" src="../images/ic_checked.svg" alt="check"></img>);
+       return(<img className="checked" src={checked} alt="check"></img>);
      }
   }
   
