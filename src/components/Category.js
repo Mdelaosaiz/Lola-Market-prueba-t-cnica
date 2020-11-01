@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoryItem from './CategoryItem';
+import {Link} from 'react-router-dom';
 import Collapsible from 'react-collapsible';
 import '../stylesheets/layout/App.scss';
 
@@ -14,7 +15,7 @@ class Category extends React.Component {
 
   renderCategoryItemArray(){
     const subCategory = this.props.category.categories.map(item => {
-      return (<CategoryItem key={item.id} item = {item} onChange= {this.onCategoryItemChange}></CategoryItem>);
+      return (<CategoryItem key={item.id} item = {item} onChange= {this.onCategoryItemChange} marketid={this.props.marketid} categoryid={this.props.category.id} selectedSubCategory={this.props.selectedSubCategory}></CategoryItem>);
     });
     return subCategory;
   }
@@ -25,20 +26,38 @@ class Category extends React.Component {
 
   render(){
 
-    const selectAll = {id:-1, name:"Ver todo", icon: eye}; //TODO
+    const selectAll = {id:-1, name:"Ver todo", icon: eye}; 
+    let open = false;
+    if (this.props.selectedCategory != null && this.props.category.id == this.props.selectedCategory)
+    {open = true;
+      if (this.props.selectedSubCategory != null && this.props.selectedSubCategory == -1){
+        for (let item of this.props.category.categories)
+        {
+          if ( item.checked == null || item.checked === false){
+            item.checked = true;
+          } else{ item.checked = false}
+        }
+      }
+    }
 
     return (
+   
     <li className="category" key= {this.props.category.id}>
+      <Link to={`/tienda/${this.props.marketid}/${this.props.category.id}`}>
+      <div>
       <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
+      {this.props.category.name}
+      </div>
+      </Link>
       <ul className="categoryList">
-        <Collapsible className="collapsible" trigger={this.props.category.name}>
-          <CategoryItem key={selectAll.id} item = {selectAll} onChange = {this.onCategoryItemChange}>
+        <Collapsible className="collapsible" open={open} >
+          <CategoryItem key={selectAll.id} item = {selectAll} onChange = {this.onCategoryItemChange} marketid={this.props.marketid} categoryid={this.props.category.id} selectedSubCategory={this.props.selectedSubCategory}>
           </CategoryItem>
           {this.renderCategoryItemArray()}
         </Collapsible>
       </ul>
     </li>
-    
+     
     );
   }
 }

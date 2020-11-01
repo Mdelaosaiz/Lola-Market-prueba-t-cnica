@@ -1,8 +1,10 @@
 import React from "react";
 import Catalogue from "./Catalogue";
-import {Route,Switch} from 'react-router-dom';
+import {Route,Switch,Redirect} from 'react-router-dom';
 import '../stylesheets/layout/App.scss';
 
+
+ 
 class App extends React.Component {
 
   constructor(props){
@@ -16,12 +18,18 @@ class App extends React.Component {
     category_id: 0,
     items: [],
     }
-    this.getTokenFromApi();
 
-    this.onCatalogueChange = this.onCatalogueChange.bind(this)
+    this.onCatalogueChange = this.onCatalogueChange.bind(this);
+    this.renderCatalogue = this.renderCatalogue.bind(this);
+  }
+
+  componentDidMount(){
+    this.getTokenFromApi();
+    //this.getTokenFromApi(getPostalCode);
+    //this.getTokenFromApi(getCategories);
   }
   
-  getTokenFromApi() {
+  getTokenFromApi(pepe) {
     fetch(
       `https://api.comprea.com/v7/user/session`
     )
@@ -29,6 +37,7 @@ class App extends React.Component {
       .then((data) => {
         this.setState({token : data.token});
         this.getCategories(data.token);
+        //pepe(data.token);
       });  
   }
   getPostalCode(){      
@@ -38,12 +47,11 @@ class App extends React.Component {
         .then((response) => response.json())
         .then((data) => {
           this.setState({markets : data.markets});
-        });
-        console.log(this.state.markets);  
-        
+        });       
   }    
   
-  getCategories(token){
+  getCategories(token){  
+    
     fetch(
       `https://api.comprea.com/v7/company/categories?token=${token}&company_id=${this.state.company_id}`
     )
@@ -65,23 +73,53 @@ class App extends React.Component {
   onCatalogueChange (catalogueProps){
     this.setState({catalogue : catalogueProps});
   }
+
+  renderCatalogue = (props) => {
+
+    //this.setSate({company_id:props.match.params.marketid});
+    //console.log(props.match.params.marketid);
+    //this.getTokenFromApi();
+    return(
+      <div>
+        <div className="header">
+          <img alt=""></img>
+          <div className="shop">
+           <span>tienda</span>
+           <small>20000</small>
+          </div>
+        </div>
+        <div className="catalogue">
+         <Catalogue catalogue={this.state.catalogue} onChange = {this.onCatalogueChange} marketId = {props.match.params.marketid} categoryid = {props.match.params.category} subcategoryid = {props.match.params.subcategory}/>
+        </div>
+      </div>);
+  }
   
   render(){
     return (
       <div className="App">
-        <Switch>
-          <Route path=''/>
+        <Redirect
+            from="/"
+            to="/tienda/50" />
+        <Switch>   
+          <Route exact path='/tienda/:marketid' render={this.renderCatalogue}>
+          </Route>    
+           <Route exact path='/tienda/:marketid/:category' render={this.renderCatalogue}>
+          </Route>
+          <Route exact path='/tienda/:marketid/:category/:subcategory' render={this.renderCatalogue}>
+          </Route>
+          {/* <Route path='/tienda/:marketid'>
+            <div className="header">
+              <img alt=""></img>
+              <div className="shop">
+               <span>tienda</span>
+               <small>20000</small>
+              </div>
+            </div>
+            <div className="catalogue">
+             <Catalogue catalogue={this.state.catalogue} onChange = {this.onCatalogueChange}/>
+            </div>
+          </Route> */}
         </Switch>  
-        <div className="header">
-         <img alt=""></img>
-         <div className="shop">
-           <span>tienda</span>
-           <small>20000</small>
-         </div>
-        </div>
-        <div className="catalogue">
-         <Catalogue catalogue={this.state.catalogue} onChange = {this.onCatalogueChange}/>
-        </div>
       </div>
      );
   }

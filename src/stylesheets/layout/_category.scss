@@ -1,10 +1,8 @@
 .category{
   width: 324px;
-  padding-top: 18px;
   padding-bottom: 17px;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
   border-bottom: 1px solid $color-dark ;
 
   
@@ -12,7 +10,9 @@
   .icon{
     height: 19px;
     width: 19.5px;
-    margin: 6.4px;
+    margin-top: 18px;
+    margin-right: 14px;
+    margin-left: 18.4px;
   }
   
   .collapsible{

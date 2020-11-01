@@ -16,7 +16,9 @@ class Catalogue extends React.Component {
   renderCategoryArray(){
     const catalogueItem = this.props.catalogue.map(item =>{
       return (
-          <Category key={item.id} category={item} icon= {item.icon} onChange ={this.onChangeCategory}></Category>
+        
+          <Category key={item.id} category={item} icon= {item.icon} onChange ={this.onChangeCategory} marketid={this.props.marketId} selectedCategory={this.props.categoryid} selectedSubCategory={this.props.subcategoryid}></Category>
+       
       );
     });
     return catalogueItem
