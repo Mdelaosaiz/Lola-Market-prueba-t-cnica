@@ -5,39 +5,28 @@ import checked from '../images/ic_checked.svg';
 
 class CategoryItem extends React.Component{
 
-constructor(props){
-  super(props);
-  this.onClick = this.onClick.bind(this);
-}
-
   renderCheck(){
      if (this.props.item.checked === true){
        return(<img className="checked" src={checked} alt="check"></img>);
      }
   }
-  
-  onClick(){ 
-  //   if ( this.props.item.checked === null || this.props.item.checked === false){
-  //     this.props.item.checked = true;
-  //   } else{ this.props.item.checked = false}
-  
-  //   // se hace  un lifting al padre en el que se avisa qué item ha cambiado y qué ha cambiado.
-  // this.props.onChange(this.props.item.id, this.props.item.checked);
-}
 
   render(){
-    // console.log(this.props.item.id);
-    // console.log(this.props.selectedSubCategory);
+    // Ésta es una condición en la que con trolemos los checked.
+    //Si el item de la subcategoría está seleccionado (diferente de null) Y el id del elemento seleccionado concuerda con dicho item, se cambia a No seleccionado y viceversa. 
+    
     if (this.props.selectedSubCategory != null && this.props.item.id == this.props.selectedSubCategory){
       if ( this.props.item.checked == null || this.props.item.checked === false){
         this.props.item.checked = true;
       } else{ this.props.item.checked = false}
     }
 
-    return(
-      <Link to={`/tienda/${this.props.marketid}/${this.props.categoryid}/${this.props.item.id}`}>
-      <li className='categoryListItem' key= {this.props.item.id} onClick={this.onClick}>
-        <img className="item-icon" src= {this.props.item.icon} alt="icono del producto"></img> 
+    return (
+
+      // En este link se crea la ruta que se va a escribir el a URL: tienda/market/categoria/subcategoria.
+      <Link to= {`/tienda/${this.props.marketid}/${this.props.categoryid}/${this.props.item.id}`}>
+      <li className='categoryListItem' key = {this.props.item.id}>
+        <img className="item-icon" src = {this.props.item.icon} alt="icono del producto"></img> 
         {this.props.item.name} {this.renderCheck()} </li>
       </Link>
     )
