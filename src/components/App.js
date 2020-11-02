@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Header";
 import Catalogue from "./Catalogue";
 import {Route,Switch,Redirect} from 'react-router-dom';
 import '../stylesheets/layout/App.scss';
@@ -17,7 +18,7 @@ class App extends React.Component {
     items: [],
     }
   }
-  
+
   //Obligamos al token a estar listo cuando se monte el componente.
   componentDidMount(){
     this.getTokenFromApi();
@@ -71,24 +72,21 @@ class App extends React.Component {
       this.setState({items : data.items});
     });  
   }
-   
-  // onCatalogueChange (catalogueProps){
-  //   this.setState({catalogue : catalogueProps});
-  // }
+  
 
   renderCatalogue = (props) => {
+   for(let market of this.state.markets){
+     if (market.id == props.match.params.marketid){
+       let markets = market;
+     }
+   }
 
-    //this.setSate({company_id:props.match.params.marketid});
-    //console.log(props.match.params.marketid);
-    //this.getTokenFromApi();
     return(
       <div>
         <div className="header">
-          <img alt=""></img>
-          <div className="shop">
-           <span>tienda</span>
-           <small>20000</small>
-          </div>
+          <Header>
+          
+          </Header>
         </div>
         <div className="catalogue">
           <Catalogue 
