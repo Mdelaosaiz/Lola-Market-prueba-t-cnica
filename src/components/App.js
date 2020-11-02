@@ -10,8 +10,9 @@ class App extends React.Component {
     super(props);
     this.state = {
     token:"",
+    postalCode: 28010,
     markets: [],
-    selectedMarket : {},
+    market: {name: "tienda"},
     company_id: 50,  
     catalogue: [],
     category_id: 0,
@@ -22,6 +23,7 @@ class App extends React.Component {
   //Obligamos al token a estar listo cuando se monte el componente.
   componentDidMount(){
     this.getTokenFromApi();
+
     //this.getTokenFromApi(getPostalCode);
     //this.getTokenFromApi(getCategories);
   }
@@ -35,18 +37,27 @@ class App extends React.Component {
       .then((data) => {
         this.setState({token : data.token});
         this.getCategories(data.token);
+        this.getPostalCode(data.token)
         //pepe(data.token);
       });  
   }
 
   //función con la que se consigue la lista de las tiendas (Markets)
-  getPostalCode(){      
+  getPostalCode(token){    
+
       fetch (
-          `https://api.comprea.com/v7/user/postalcode?token=${this.state.token}&postalcode=28010`
+          `https://api.comprea.com/user/postalcode?token=${token}&postalcode=${this.state.postalCode}`
         )
         .then((response) => response.json())
         .then((data) => {
           this.setState({markets : data.markets});
+        
+          //En el siguiente for lo que se consigue es que 
+        for(let mrkt of data.markets){
+          if (mrkt.id == this.state.company_id){
+          this.setState( {market: mrkt});
+        }
+   }
         });       
   }    
   
@@ -75,19 +86,17 @@ class App extends React.Component {
   
 
   renderCatalogue = (props) => {
-   for(let market of this.state.markets){
-     if (market.id == props.match.params.marketid){
-       let markets = market;
-     }
-   }
+
 
     return(
       <div>
-        <div className="header">
-          <Header>
-          
+        {/* <div className="header"> */}
+          <Header
+           market = {this.state.market}
+           postalCode = {this.state.postalCode}
+           >           
           </Header>
-        </div>
+        {/* </div> */}
         <div className="catalogue">
           <Catalogue 
            catalogue = {this.state.catalogue} 

@@ -1,0 +1,26 @@
+.headerIn{
+  height: 64px;
+  width: 324px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: fixed;
+  z-index: 1;
+  top:0;
+   
+  img{
+    width: 24px;
+    height: 24px;
+    margin-top: 20px;
+    margin-left: 12px;
+    
+  }
+    .shop{
+     margin-top: 14.5px;
+     margin-left: 12.5px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+    }
+}

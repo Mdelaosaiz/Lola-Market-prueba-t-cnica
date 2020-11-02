@@ -3,24 +3,13 @@ import '../stylesheets/layout/App.scss';
 
 class Header extends React.Component {
 
-// renderMarket(){
-//   for (let market of this.props.markets){
-//     console.log(market.id);
-//     // if(market.id === 50){
-//     //   render(){
-//     //    return 
-//     //   }
-//     // }
-//   }
-// }
-
 render(){
      return (
-       <div>
-         <img alt=""></img>
+       <div className="headerIn">
+         <img alt="icono de la tienda" src={this.props.market.icon}></img>
          <div className="shop">
-           <span>tienda</span>
-           <small>20000</small>
+           <span>{this.props.market.name}</span>
+           <small> Comprando en {this.props.postalCode}</small>
           </div>
        </div>
      )
