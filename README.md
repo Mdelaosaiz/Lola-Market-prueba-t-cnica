@@ -91,4 +91,4 @@ Email: mariandelaosa@gmail.com
 
 Twitter: @MariandelaOsa
 
-LinkedIn: @marian-de-la-osa
+LinkedIn: @marian-de-la-osagit push
