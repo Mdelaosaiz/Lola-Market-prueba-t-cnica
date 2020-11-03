@@ -51,10 +51,9 @@ Para montar la prueba se han usado diferentes componentes:
 ### En casi todos los componentes se han añadido algunos comentarios con la intención de ayudar a la compresión de qué, cómo y porqué se está realizando es parte del código.
 
 
-## ¿Cómo se podría mejorar?
+## ¿Cómo se podría mejorar? ✨
 
 1. En el App está grabado que el company_id sea 50 y que el postalCode sea 28010.
-
 Ésto está así porque se necesitaba recibir resultados y volcarlos.
 Se podría solucionar creando una página landing dónde sea el usuario quien escriba su código de postal y elija las tiendas que se encuentran disponibles en esa zona.
 
@@ -80,8 +79,8 @@ Se ha creado esta subcategoría con un id:-1 en vez de referenciarla al padre.
 * Algoritmia.
 * Crear una URL demás de dos pasos.
 
-## Programadora:
-Esta prueba fue creada por Marián de la Osa
+## Programadora 👩‍💻
+Esta prueba fue creada por Marián de la Osa.
 
 ¿cómo contactar conmigo?
 
