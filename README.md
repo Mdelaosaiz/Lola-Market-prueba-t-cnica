@@ -1,4 +1,4 @@
-### menú tienda Lola Market 
+# Prueba técnica Lola Market 
 Proyecto creado con React App.
 
 En este proyecto se ha recreado el menú desplegable de la tienda de Lola Market.
@@ -22,18 +22,18 @@ Para obtener toda la información de la tienda se ha recogido todo lo necesario 
 
 Para montar la prueba se han usado diferentes componentes:
 
-# App.js 
+### App.js 
   Componente padre en el que se hacen los fetch de todos los datos que se necesitan y un constructor para guardar en el estado los datos recibidos.
   En el render está creada la ruta que tiene que aparecer en el buscador.
 
-# Header.js
+### Header.js
   Componente hijo creado única y exclusivamente para la cabecera del menú.
   En él, se reciben por props y se vuelca la información sobre el color de fondo, el icono, el nombre y el código postal de la tienda elegida.
 
-# Catalogue.js
+### Catalogue.js
   Componente hijo encargado de recorrer y pintar todas las categorías de la tienda elegida.
 
-# Category.js
+### Category.js
   Componente nieto muy concurrido ya que en él :
 
   * Damos a las categorías de la tienda sus nombres así como la organización de las subcategorías.
@@ -45,10 +45,10 @@ Para montar la prueba se han usado diferentes componentes:
   * Hay una algoritmia específica para el comportamiento que tienen que tener los "Check" de todas las subcategorías.
 
  
-# CategoryItem.js
+### CategoryItem.js
   Componente bisnieto en el que se da nombre y aspecto a las subcategorías así como a los "check" que van a tener cuando sea necesario.
 
-# En casi todos los componentes se han añadido algunos comentarios con la intención de ayudar a la compresión de qué, cómo y porqué se está realizando es parte del código.
+### En casi todos los componentes se han añadido algunos comentarios con la intención de ayudar a la compresión de qué, cómo y porqué se está realizando es parte del código.
 
 
 ## ¿Cómo se podría mejorar?
