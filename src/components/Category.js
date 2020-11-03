@@ -32,18 +32,21 @@ class Category extends React.Component {
     {open = true;
       if (this.props.selectedSubCategory != null && this.props.selectedSubCategory == -1){
         //Cuando el colapsable esté seleccionado, vamos a poner un check en cada uno de los items si no está seleccionado.
-        for (let item of this.props.category.categories)
-        {
+        for (let item of this.props.category.categories){
           if ( item.checked == null || item.checked === false){
             item.checked = true;
-          } else{ item.checked = false}
+            //si hay algún item que está en true, va a seguir en igual si se selecciona "ver todo".
+          } else if(item.checked != null || item.checked === true){
+            item.checked = true;
+
+          }else { item.checked = false}
         }
+      } else if (this.props.selectedSubCategory == null && this.props.selectedSubCategory == -1){
+        for (let item of this.props.category.categories){
+          if ( item.checked != null || item.checked === true){
+            item.checked = false;}
+        } 
       } 
-      // else if(this.props.selectedSubCategory == null && this.props.selectedSubCategory == -1){
-      //   for (let item of this.props.category.categories)
-      //   { item.checked = false}
-      //   }
-      
     }
 
     return (
