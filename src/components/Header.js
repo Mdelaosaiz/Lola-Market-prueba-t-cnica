@@ -3,9 +3,13 @@ import '../stylesheets/layout/App.scss';
 
 class Header extends React.Component {
 
-render(){
+ render(){
+  const headerStyle = {
+    //Recibimos el color del fondo de la tienda por props y la metemos en esta variable, para usarla en el return.
+    "background-color": "rgb(" + this.props.market.color + ")"
+  };
      return (
-       <div className="headerIn">
+       <div className="headerIn" style = {headerStyle} >
          <img alt="icono de la tienda" src={this.props.market.icon}></img>
          <div className="shop">
            <span>{this.props.market.name}</span>

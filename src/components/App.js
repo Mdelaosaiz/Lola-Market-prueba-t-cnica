@@ -22,7 +22,7 @@ class App extends React.Component {
 
   //Obligamos al token a estar listo cuando se monte el componente.
   componentDidMount(){
-    this.getTokenFromApi();
+    this.getTokenFromApi();//TODO
 
     //this.getTokenFromApi(getPostalCode);
     //this.getTokenFromApi(getCategories);
@@ -90,13 +90,11 @@ class App extends React.Component {
 
     return(
       <div>
-        {/* <div className="header"> */}
-          <Header
+          <Header 
            market = {this.state.market}
            postalCode = {this.state.postalCode}
            >           
           </Header>
-        {/* </div> */}
         <div className="catalogue">
           <Catalogue 
            catalogue = {this.state.catalogue} 
