@@ -77,7 +77,6 @@ Se ha creado esta subcategoría con un id:-1 en vez de referenciarla al padre.
 * Añadir fuentes que no sean de Google fonts.
 * Añadir css desde el código de React.
 * Algoritmia.
-* Crear una URL demás de dos pasos.
 
 ## Programadora 👩‍💻
 Esta prueba fue creada por Marián de la Osa.
