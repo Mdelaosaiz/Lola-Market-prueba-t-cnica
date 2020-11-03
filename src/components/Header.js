@@ -6,7 +6,7 @@ class Header extends React.Component {
  render(){
   const headerStyle = {
     //Recibimos el color del fondo de la tienda por props y la metemos en esta variable, para usarla en el return.
-    "background-color": "rgb(" + this.props.market.color + ")"
+    backgroundColor: "rgb(" + this.props.market.color + ")"
   };
      return (
        <div className="headerIn" style = {headerStyle} >

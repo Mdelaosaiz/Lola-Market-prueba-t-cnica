@@ -7,7 +7,9 @@ import '../stylesheets/layout/App.scss';
 import eye from '../images/eye.png';
 
 class Category extends React.Component {
- 
+
+  selectAllItem = {id:-1, name:"Ver todo", icon: eye, checked : false};
+
   renderCategoryItemArray(){
     const subCategory = this.props.category.categories.map(item => {
       return (
@@ -23,30 +25,41 @@ class Category extends React.Component {
   }
   
   render(){
-    //colapsable.
-    const selectAll = {id:-1, name:"Ver todo", icon: eye}; 
+
     let open = false;
 
     // Aquí ordenamos al colapsable a que, cuando esté seleccionado y tenga el mismo id que la categoría, se abra.
     if (this.props.selectedCategory != null && this.props.category.id == this.props.selectedCategory)
-    {open = true;
+    {
+      open = true;
       if (this.props.selectedSubCategory != null && this.props.selectedSubCategory == -1){
+        
+        this.selectAllItem.checked = !this.selectAllItem.checked
         //Cuando el colapsable esté seleccionado, vamos a poner un check en cada uno de los items si no está seleccionado.
         for (let item of this.props.category.categories){
-          if ( item.checked == null || item.checked === false){
-            item.checked = true;
-            //si hay algún item que está en true, va a seguir en igual si se selecciona "ver todo".
-          } else if(item.checked != null || item.checked === true){
-            item.checked = true;
-
-          }else { item.checked = false}
+          item.checked = this.selectAllItem.checked;
         }
-      } else if (this.props.selectedSubCategory == null && this.props.selectedSubCategory == -1){
+        
+        //Ahora vamos a controlar los checks de las subcategorías. 
+   
+      }else if (this.props.selectedSubCategory != null && this.props.selectedSubCategory != -1){
         for (let item of this.props.category.categories){
-          if ( item.checked != null || item.checked === true){
-            item.checked = false;}
-        } 
-      } 
+          if (item.id == this.props.selectedSubCategory){
+            if ( item.checked == null || item.checked === false){
+              item.checked = true;
+            } else{ item.checked = false}
+          }
+        }
+         //Aquí relacionamos el check de "ver todo" con los de las subcategorías.
+        let isAllChecked = true; 
+        for (let item of this.props.category.categories){
+          if( item.checked == null || item.checked == false){
+             isAllChecked = false;
+          }
+        }
+        this.selectAllItem.checked = isAllChecked;
+      }
+      
     }
 
     return (
@@ -64,8 +77,8 @@ class Category extends React.Component {
       <ul className="categoryList">
         <Collapsible className="collapsible" open={open} >
           <CategoryItem 
-           key={selectAll.id} 
-           item = {selectAll} 
+           key={this.selectAllItem.id} 
+           item = {this.selectAllItem} 
            marketid={this.props.marketid} 
            categoryid={this.props.category.id} 
            selectedSubCategory={this.props.selectedSubCategory}>

@@ -12,14 +12,7 @@ class CategoryItem extends React.Component{
   }
 
   render(){
-    // Ésta es una condición en la que con trolemos los checked.
-    //Si el item de la subcategoría está seleccionado (diferente de null) Y el id del elemento seleccionado concuerda con dicho item, se cambia a No seleccionado y viceversa. 
-    if (this.props.selectedSubCategory != null && this.props.item.id == this.props.selectedSubCategory){
-      if ( this.props.item.checked == null || this.props.item.checked === false){
-        this.props.item.checked = true;
-      } else{ this.props.item.checked = false}
-    }
-
+    
     return (
 
       // En este link se crea la ruta que se va a escribir el a URL: tienda/market/categoria/subcategoria.
