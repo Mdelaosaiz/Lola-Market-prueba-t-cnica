@@ -23,9 +23,6 @@ class App extends React.Component {
   //Obligamos al token a estar listo cuando se monte el componente.
   componentDidMount(){
     this.getTokenFromApi();//TODO
-
-    //this.getTokenFromApi(getPostalCode);
-    //this.getTokenFromApi(getCategories);
   }
   
   //Función con la que se consigue el Token.

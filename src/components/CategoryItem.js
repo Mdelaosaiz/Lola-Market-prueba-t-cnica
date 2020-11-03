@@ -14,12 +14,12 @@ class CategoryItem extends React.Component{
   render(){
     
     return (
-
       // En este link se crea la ruta que se va a escribir el a URL: tienda/market/categoria/subcategoria.
       <Link to= {`/tienda/${this.props.marketid}/${this.props.categoryid}/${this.props.item.id}`}>
-      <li className='categoryListItem' key = {this.props.item.id}>
-        <img className="item-icon" src = {this.props.item.icon} alt="icono del producto"></img> 
-        {this.props.item.name} {this.renderCheck()} </li>
+        <li className='categoryListItem' key = {this.props.item.id}>
+          <img className="item-icon" src = {this.props.item.icon} alt="icono del producto"></img> 
+          {this.props.item.name} {this.renderCheck()} 
+        </li>
       </Link>
     )
   }

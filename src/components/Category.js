@@ -2,13 +2,14 @@ import React from 'react';
 import CategoryItem from './CategoryItem';
 import {Link} from 'react-router-dom';
 import Collapsible from 'react-collapsible';
+import eye from '../images/eye.png';
 import '../stylesheets/layout/App.scss';
 
-import eye from '../images/eye.png';
+
 
 class Category extends React.Component {
 
-  selectAllItem = {id:-1, name:"Ver todo", icon: eye, checked : false};
+  selectAllItem = {id:-1, name:"Ver toda la sección", icon: eye, checked : false};
 
   renderCategoryItemArray(){
     const subCategory = this.props.category.categories.map(item => {
@@ -59,35 +60,31 @@ class Category extends React.Component {
         }
         this.selectAllItem.checked = isAllChecked;
       }
-      
     }
 
     return (
-   
-    <li className="category" key= {this.props.category.id}>
+     <li className="category" key= {this.props.category.id}>
 
-    {/* En este link se crea la ruta que se va a escribir el a URL: tienda/market/categoria */}
-
-      <Link to={`/tienda/${this.props.marketid}/${this.props.category.id}`}>
-        <div>
-         <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
-         {this.props.category.name}
-        </div>
-      </Link>
-      <ul className="categoryList">
-        <Collapsible className="collapsible" open={open} >
-          <CategoryItem 
-           key={this.selectAllItem.id} 
-           item = {this.selectAllItem} 
-           marketid={this.props.marketid} 
-           categoryid={this.props.category.id} 
-           selectedSubCategory={this.props.selectedSubCategory}>
-          </CategoryItem>
-          {this.renderCategoryItemArray()}
-        </Collapsible>
-      </ul>
-    </li>
-     
+       {/* En este link se crea la ruta que se va a escribir el a URL: tienda/market/categoria */}
+        <Link to={`/tienda/${this.props.marketid}/${this.props.category.id}`}>
+          <div>
+           <img className="icon" src= {this.props.icon} alt="icono del producto"></img>
+           {this.props.category.name}
+          </div>
+        </Link>
+        <ul className="categoryList">
+          <Collapsible className="collapsible" open={open} >
+            <CategoryItem 
+             key={this.selectAllItem.id} 
+             item = {this.selectAllItem} 
+             marketid={this.props.marketid} 
+             categoryid={this.props.category.id} 
+             selectedSubCategory={this.props.selectedSubCategory}>
+            </CategoryItem>
+            {this.renderCategoryItemArray()}
+          </Collapsible>
+        </ul>
+      </li>
     );
   }
 }
